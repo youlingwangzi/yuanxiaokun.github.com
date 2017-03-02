@@ -1,0 +1,811 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,类库,Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="项目简介这是安卓应用 程序员计算器 的计算内核源代码，应用 程序员计算器你可以在 这里 找到。
+代码提供了long、int、short、byte、real number（实数）、double、float七种数据类型的进制转换、基础算术运算和部分数据类型的逻辑运算操作。并且支持在七种数据类型之间转换。
+详细API目录参见：CFP_Kernel_Document。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员计算器计算内核">
+<meta property="og:url" content="http://yuanxiaokun.xyz/2017/03/02/程序员计算器计算内核/index.html">
+<meta property="og:site_name" content="幽灵王子的博客">
+<meta property="og:description" content="项目简介这是安卓应用 程序员计算器 的计算内核源代码，应用 程序员计算器你可以在 这里 找到。
+代码提供了long、int、short、byte、real number（实数）、double、float七种数据类型的进制转换、基础算术运算和部分数据类型的逻辑运算操作。并且支持在七种数据类型之间转换。
+详细API目录参见：CFP_Kernel_Document。">
+<meta property="og:updated_time" content="2017-03-02T11:00:04.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员计算器计算内核">
+<meta name="twitter:description" content="项目简介这是安卓应用 程序员计算器 的计算内核源代码，应用 程序员计算器你可以在 这里 找到。
+代码提供了long、int、short、byte、real number（实数）、double、float七种数据类型的进制转换、基础算术运算和部分数据类型的逻辑运算操作。并且支持在七种数据类型之间转换。
+详细API目录参见：CFP_Kernel_Document。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yuanxiaokun.xyz/2017/03/02/程序员计算器计算内核/"/>
+
+
+
+
+
+  <title> 程序员计算器计算内核 | 幽灵王子的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">幽灵王子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">程序员计算器开发者</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yuanxiaokun.xyz/2017/03/02/程序员计算器计算内核/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="幽灵王子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_icon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="幽灵王子的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                程序员计算器计算内核
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T18:32:25+08:00">
+                2017-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/程序员计算器/" itemprop="url" rel="index">
+                    <span itemprop="name">程序员计算器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>这是安卓应用 <code>程序员计算器</code> 的计算内核源代码，应用 <code>程序员计算器</code><br>你可以在 <a href="http://app.mi.com/details?id=com.example.calculatorforprogrammer" target="_blank" rel="external">这里</a> 找到。</p>
+<p>代码提供了<code>long</code>、<code>int</code>、<code>short</code>、<code>byte</code>、<code>real number（实数）</code>、<code>double</code>、<code>float</code><br>七种数据类型的进制转换、基础算术运算和部分数据类型的逻辑运算操作。并且支持在七种数据类型之间转换。</p>
+<p>详细API目录参见：<a href="http://yuanxiaokun.xyz/cfp_kernel_doc/">CFP_Kernel_Document</a>。</p>
+<a id="more"></a>
+<h2 id="类型简介"><a href="#类型简介" class="headerlink" title="类型简介"></a>类型简介</h2><ul>
+<li><code>CFPNumber</code> 类</li>
+</ul>
+<p>主数据类，可自由切换数据的数据类型，并提供不同的操作。</p>
+<ul>
+<li><code>CFPLong</code>、<code>CFPInteger</code>、<code>CFPShort</code>、<code>CFPByte</code> 类</li>
+</ul>
+<p>整型数据类，提供进制转换、基础运算、逻辑运算操作。</p>
+<ul>
+<li><code>CFPRealNumber</code> 类</li>
+</ul>
+<p>实数数据类，提供进制转换、基础运算操作。</p>
+<ul>
+<li><code>CFPDouble</code>、<code>CFPFloat</code> 类</li>
+</ul>
+<p>浮点型数据类，提供进制转换、基础运算操作。</p>
+<h2 id="提供的操作"><a href="#提供的操作" class="headerlink" title="提供的操作"></a>提供的操作</h2><h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><p>提供<code>十六进制</code>、<code>十进制</code>、<code>八进制</code>、<code>二进制</code>四种进制转换操作。</p>
+<h3 id="基本算术运算"><a href="#基本算术运算" class="headerlink" title="基本算术运算"></a>基本算术运算</h3><p>提供<code>加法</code>、<code>减法</code>、<code>乘法</code>、<code>除法</code>、<code>相反数</code>五种基本算数运算。</p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p>提供<code>取模（mod）</code>、<code>或（or）</code>、<code>异或（xor）</code>、<code>与（and）</code>、<code>非（not）</code><br>、<code>循环左移（RoL）</code>、<code>循环右移（RoR）</code>、<code>左移（Lsh）</code>、<code>右移（Rsh）</code><br>九种逻辑运算操作。</p>
+<h2 id="相关说明"><a href="#相关说明" class="headerlink" title="相关说明"></a>相关说明</h2><h3 id="进制转换-1"><a href="#进制转换-1" class="headerlink" title="进制转换"></a>进制转换</h3><h4 id="十六进制"><a href="#十六进制" class="headerlink" title="十六进制"></a>十六进制</h4><p>根据数据类型的不同转换形式有所不同，区别如下：</p>
+<p><code>Long</code>、<code>Integer</code>、<code>Short</code>、<code>Byte</code>类型返回其补码的十六进制形式；</p>
+<p><code>RealNumber</code> 类型返回自然的十六进制形式；</p>
+<p>eg：<code>-1342.598</code>转换为<code>-53E.9916872B020C49BA5E35……</code>；</p>
+<p><code>Double</code> <code>Float</code>类型返回Double、Float类<code>public static?String?toHexString(double?d)</code>函数结果。</p>
+<h4 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h4><p>根据数据类型的不同转换形式有所不同，区别如下：</p>
+<p><code>Long</code>、<code>Integer</code>、<code>Short</code>、<code>Byte</code>类型返回其补码的八进制形式；</p>
+<p><code>RealNumber</code> 类型返回自然的八进制形式；</p>
+<p>eg：<code>-1342.598</code>转换为<code>-2476.46213207126010142233……</code>；</p>
+<p><code>Double</code> <code>Float</code>类型返回其IEEE754标准的八进制形式。</p>
+<h4 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h4><p>根据数据类型的不同转换形式有所不同，区别如下：</p>
+<p><code>Long</code>、<code>Integer</code>、<code>Short</code>、<code>Byte</code>类型返回其补码的二进制形式；</p>
+<p><code>RealNumber</code> 类型返回自然的二进制形式；</p>
+<p>eg：<code>-1342.598</code>转换为<code>-10100111110.10011001000101101……</code>；</p>
+<p><code>Double</code> <code>Float</code>类型返回Double、Float类<code>public static?long?doubleToLongBits(double?value)</code>、<br><code>public static?int?floatToIntBits(float?value)</code>函数结果。</p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ul>
+<li>对于 <code>div（除法）</code>、<code>mod（取模）</code> 操作，如果除数为零，则会抛出 <code>CFPDivZeroException</code> 异常。 </li>
+<li>对于 <code>CFPNumber</code> 对象数据类型设置为非整数类型，且试图执行不支持的逻辑运算操作时，<br>将抛出 <code>CFPNonsupportedOperation</code> 异常。</li>
+</ul>
+<h3 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h3><ul>
+<li>对于数据类型转换过程的溢出，将直接按溢出后的结果转换。</li>
+<li>当两个 <code>CFPNumber</code> 类对象进行基本算术运算或者逻辑运算时，如果两个对象数据类型不同，<br>则会将被作为传入参数的对象的数据类型强制转换为调用者的类型。eg：a.add(b)，如果a、b类型不同，<br>则会将b的类型强制转换为a的类型参与运算。</li>
+</ul>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="1-0-0"><a href="#1-0-0" class="headerlink" title="1.0.0"></a>1.0.0</h3><ol>
+<li><code>RealNumber</code> 类添加参数为 <code>BigDecimal</code> 的构造函数。</li>
+<li>修复实数类型处罚结果时循环小数时的错误。</li>
+<li>修复 <code>CFPByte</code>、<code>CFPShort</code> 数据类型循环位移运算错误。</li>
+<li>修复 <code>CFPDouble</code> 数据类型转换错误。</li>
+<li>修复 <code>addABit</code> 函数不同进制错误。</li>
+<li><code>CFPDouble</code>、<code>CFPFloat</code> 类十进制数据输出改为实数输出。</li>
+<li><code>CFPRealNumber</code> 类修复小数逐位输入的问题。</li>
+</ol>
+<h3 id="0-9-8beta"><a href="#0-9-8beta" class="headerlink" title="0.9.8beta"></a>0.9.8beta</h3><ol>
+<li>在 <code>CFPBaseOperation</code> 接口增加 <code>addABit</code> <code>deleteABit</code> 函数。整数按照进制直接增加减，小数只能<br>十进制增加减一位。</li>
+<li><code>CFPDouble</code>、<code>CFPFloat</code> 类实现改为继承自 <code>CFPRealNumber</code> 类。</li>
+<li><code>CFPRealNumber</code> 类增加 scale 精度设置。</li>
+</ol>
+<h3 id="0-9-7beta"><a href="#0-9-7beta" class="headerlink" title="0.9.7beta"></a>0.9.7beta</h3><ol>
+<li>修复循环位移方向相反错误。</li>
+<li>修复 <code>CFPNumber</code> 类 <code>setNumber</code> 函数问题。</li>
+<li>修复 <code>CFPNumber</code> 类整型浮点型构造函数问题。</li>
+</ol>
+<h3 id="0-9-6beta"><a href="#0-9-6beta" class="headerlink" title="0.9.6beta"></a>0.9.6beta</h3><ol>
+<li>解除对 <code>Java 8 API</code> 的依赖。</li>
+</ol>
+<h3 id="0-9-5beta"><a href="#0-9-5beta" class="headerlink" title="0.9.5beta"></a>0.9.5beta</h3><ol>
+<li>所有数据类实现 <code>Cloneable</code> 接口。</li>
+<li>所有数据类添加 <code>toStringa()</code> 方法，返回数的十进制字符串。</li>
+<li><code>CFPNumber</code> 类增加参数为 <code>int</code>、<code>float</code> 的构造函数。</li>
+<li><code>CFPNumber</code> 类 <code>compareTo()</code> 函数增加在比较前的强制类型转换。</li>
+</ol>
+<h3 id="0-9-4beta"><a href="#0-9-4beta" class="headerlink" title="0.9.4beta"></a>0.9.4beta</h3><ol>
+<li><code>CFPNumber</code> 类增加 <code>public CFPDataType getDataType()</code> 函数。</li>
+<li><code>CFPBaseOperation</code> 接口增加 <code>int compareTo(T a)</code> 函数，相关类已全部实现该操作。</li>
+<li>增加 <code>CFPNonsupportedOperation</code> 异常，当对于 <code>CFPNumber</code><br>对象数据类型设置为非整数类型，且试图执行不支持的逻辑运算操作时，抛出此异常。</li>
+<li><code>CFPNumber</code> 类做双目运算时加入数据类型转换。</li>
+</ol>
+<h3 id="0-9-3beta"><a href="#0-9-3beta" class="headerlink" title="0.9.3beta"></a>0.9.3beta</h3><ol>
+<li><code>CFPNumber</code> 类增加 <code>public CFPNumber setNumber(String s)</code> 、<br><code>public CFPNumber setDataType(CFPDataType dataType)</code><br>方法。</li>
+</ol>
+<h3 id="0-9-2beta"><a href="#0-9-2beta" class="headerlink" title="0.9.2beta"></a>0.9.2beta</h3><ol>
+<li><code>CFPNumbwe</code> 类增加 <code>public CFPNumber setNumber(String s)</code> 方法。</li>
+</ol>
+<h3 id="0-9-1beta"><a href="#0-9-1beta" class="headerlink" title="0.9.1beta"></a>0.9.1beta</h3><ol>
+<li>添加 <code>CFPDivZeroException</code> 异常，当执行 <code>div</code>、<code>mod</code> 运算除数为零时抛出此异常。</li>
+<li>更改 <code>CFPNumber</code> 类数据类型转换返回值，更改后返回 <code>CFPNumber</code> 对象。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/类库/" rel="tag"># 类库</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my_icon.jpg"
+               alt="幽灵王子" />
+          <p class="site-author-name" itemprop="name">幽灵王子</p>
+           
+              <p class="site-description motion-element" itemprop="description">程序员计算器开发者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型简介"><span class="nav-number">2.</span> <span class="nav-text">类型简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提供的操作"><span class="nav-number">3.</span> <span class="nav-text">提供的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进制转换"><span class="nav-number">3.1.</span> <span class="nav-text">进制转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本算术运算"><span class="nav-number">3.2.</span> <span class="nav-text">基本算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关说明"><span class="nav-number">4.</span> <span class="nav-text">相关说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进制转换-1"><span class="nav-number">4.1.</span> <span class="nav-text">进制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#十六进制"><span class="nav-number">4.1.1.</span> <span class="nav-text">十六进制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八进制"><span class="nav-number">4.1.2.</span> <span class="nav-text">八进制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制"><span class="nav-number">4.1.3.</span> <span class="nav-text">二进制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理"><span class="nav-number">4.2.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他说明"><span class="nav-number">4.3.</span> <span class="nav-text">其他说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新日志"><span class="nav-number">5.</span> <span class="nav-text">更新日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-0-0"><span class="nav-number">5.1.</span> <span class="nav-text">1.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-8beta"><span class="nav-number">5.2.</span> <span class="nav-text">0.9.8beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-7beta"><span class="nav-number">5.3.</span> <span class="nav-text">0.9.7beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-6beta"><span class="nav-number">5.4.</span> <span class="nav-text">0.9.6beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-5beta"><span class="nav-number">5.5.</span> <span class="nav-text">0.9.5beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-4beta"><span class="nav-number">5.6.</span> <span class="nav-text">0.9.4beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-3beta"><span class="nav-number">5.7.</span> <span class="nav-text">0.9.3beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-2beta"><span class="nav-number">5.8.</span> <span class="nav-text">0.9.2beta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-9-1beta"><span class="nav-number">5.9.</span> <span class="nav-text">0.9.1beta</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">幽灵王子</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
