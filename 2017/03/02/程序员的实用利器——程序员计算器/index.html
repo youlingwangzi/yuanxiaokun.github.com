@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Android,实用工具," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这是为广大程序员提供的程序员计算器，特别提供了位键盘，可以直接对当前数的二进制的每一位直接进行操作，并实时显示其他进制的结果。它可以进行十六进制、十进制、八进制、二进制之间的相互转换，实时得出结果。它可以进行与，或，异或，非等逻辑运算。也可以进行加、减、乘、除、取模、取相反数等常规运算。
+特色功能位键盘应用内置位键盘，在整数数据类型下，可以直接通过位键盘对当前整数的二进制的每一位实时改变，并实时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员的实用利器——程序员计算器">
+<meta property="og:url" content="http://yuanxiaokun.xyz/2017/03/02/程序员的实用利器——程序员计算器/index.html">
+<meta property="og:site_name" content="幽灵王子的博客">
+<meta property="og:description" content="这是为广大程序员提供的程序员计算器，特别提供了位键盘，可以直接对当前数的二进制的每一位直接进行操作，并实时显示其他进制的结果。它可以进行十六进制、十进制、八进制、二进制之间的相互转换，实时得出结果。它可以进行与，或，异或，非等逻辑运算。也可以进行加、减、乘、除、取模、取相反数等常规运算。
+特色功能位键盘应用内置位键盘，在整数数据类型下，可以直接通过位键盘对当前整数的二进制的每一位实时改变，并实时">
+<meta property="og:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-1.png">
+<meta property="og:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-2.png">
+<meta property="og:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-3.png">
+<meta property="og:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-4.png">
+<meta property="og:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-5.png">
+<meta property="og:updated_time" content="2017-03-02T13:07:03.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员的实用利器——程序员计算器">
+<meta name="twitter:description" content="这是为广大程序员提供的程序员计算器，特别提供了位键盘，可以直接对当前数的二进制的每一位直接进行操作，并实时显示其他进制的结果。它可以进行十六进制、十进制、八进制、二进制之间的相互转换，实时得出结果。它可以进行与，或，异或，非等逻辑运算。也可以进行加、减、乘、除、取模、取相反数等常规运算。
+特色功能位键盘应用内置位键盘，在整数数据类型下，可以直接通过位键盘对当前整数的二进制的每一位实时改变，并实时">
+<meta name="twitter:image" content="http://yuanxiaokun.xyz/imgs/程序员的实用利器——程序员计算器-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yuanxiaokun.xyz/2017/03/02/程序员的实用利器——程序员计算器/"/>
+
+
+
+
+
+  <title> 程序员的实用利器——程序员计算器 | 幽灵王子的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">幽灵王子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">程序员计算器开发者</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yuanxiaokun.xyz/2017/03/02/程序员的实用利器——程序员计算器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="幽灵王子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_icon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="幽灵王子的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                程序员的实用利器——程序员计算器
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T20:35:56+08:00">
+                2017-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/程序员计算器/" itemprop="url" rel="index">
+                    <span itemprop="name">程序员计算器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/imgs/程序员的实用利器——程序员计算器-1.png" alt="位键盘插图"></p>
+<p>这是为广大程序员提供的程序员计算器，特别提供了位键盘，可以直接对当前数的二进制的每一位直接进行操作，并实时显示其他进制的结果。它可以进行十六进制、十进制、八进制、二进制之间的相互转换，实时得出结果。它可以进行与，或，异或，非等逻辑运算。也可以进行加、减、乘、除、取模、取相反数等常规运算。</p>
+<h2 id="特色功能"><a href="#特色功能" class="headerlink" title="特色功能"></a>特色功能</h2><h3 id="位键盘"><a href="#位键盘" class="headerlink" title="位键盘"></a>位键盘</h3><p>应用内置位键盘，在整数数据类型下，可以直接通过位键盘对当前整数的二进制的每一位实时改变，并实时显示其他进制结果。</p>
+<a id="more"></a>
+<p><img src="/imgs/程序员的实用利器——程序员计算器-2.png" alt="位键盘插图"></p>
+<h3 id="全数据类型支持"><a href="#全数据类型支持" class="headerlink" title="全数据类型支持"></a>全数据类型支持</h3><p>应用支持8bit、16bit、32bit、64bit位长的四种证书数据类型，double、float两种浮点数数据类型以及数学意义上的实数型数据类型，共7种数据类型。</p>
+<p>根据不同的数据类型提供不同的运算功能支持。</p>
+<p><img src="/imgs/程序员的实用利器——程序员计算器-3.png" alt="位键盘插图"></p>
+<h3 id="四种进制实时转换"><a href="#四种进制实时转换" class="headerlink" title="四种进制实时转换"></a>四种进制实时转换</h3><p>应用支持所有整数数据类型在十六进制、八进制、十进制、二进制间进行实时进制转换，实时动态显示四种进制的转换结果。</p>
+<p>浮点数类型同样支持转换，其中二进制为浮点数的IEEE754标准结果，八进制为二进制每三位转换结果，十六进制为科学记数法下十六进制结果。</p>
+<p>实数类型数据为所有进制的自然转换结果。
+　　</p>
+<h3 id="完善的逻辑运算和基础四则运算"><a href="#完善的逻辑运算和基础四则运算" class="headerlink" title="完善的逻辑运算和基础四则运算"></a>完善的逻辑运算和基础四则运算</h3><p>应用所有整数数据类型支持与、模、位移、循环位移、非、或、异或七种逻辑运算操作和加、减、乘、除四种基础运算操作。</p>
+<p>应用所有浮点数数据类型和实数数据类型支持加、减、乘、除四种基础运算操作。</p>
+<p>无广告、完全免费</p>
+<p>应用无任何广告、无任何多余权限，给你清爽的体验。</p>
+<p><img src="/imgs/程序员的实用利器——程序员计算器-4.png" alt="位键盘插图"></p>
+<h2 id="应用详情"><a href="#应用详情" class="headerlink" title="应用详情"></a>应用详情</h2><h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><p>安卓4.0+</p>
+<h3 id="权限信息"><a href="#权限信息" class="headerlink" title="权限信息"></a>权限信息</h3><p>所有权限为应用集成的第三方自动更新SDK要求权限，功能如下：</p>
+<ul>
+<li>android.permission.WRITE_EXTERNAL_STORAGE 允许许将下载的apk文件保存到sd卡中</li>
+<li>android.permission.ACCESS_NETWORK_STATE</li>
+<li>android.permission.INTERNET</li>
+<li>android.permission.ACCESS_WIFI_STATE 以上三个权限允许SDK访问手机的网络连接状态，判断是否更新</li>
+<li>android.permission.READ_PHONE_STATE 用于读取手机硬件信息等，用于机型过滤</li>
+<li>com.xiaomi.market.sdk.UPDATE 用于标明使用小米SDK</li>
+</ul>
+<h3 id="已上架商店及下载地址"><a href="#已上架商店及下载地址" class="headerlink" title="已上架商店及下载地址"></a>已上架商店及下载地址</h3><p><a href="http://app.mi.com/details?id=com.example.calculatorforprogrammer" target="_blank" rel="external">小米应用商店</a></p>
+<p><img src="/imgs/程序员的实用利器——程序员计算器-5.png" alt="位键盘插图"></p>
+<p><a href="http://www.coolapk.com/apk/com.example.calculatorforprogrammer" target="_blank" rel="external">酷安</a></p>
+<p><a href="http://app.flyme.cn/apps/public/detail?package_name=com.example.calculatorforprogrammer" target="_blank" rel="external">魅族商店</a></p>
+<p>此外应用官方上架了 <code>豌豆荚</code> 、 <code>PP助手</code> 、 <code>应用宝</code> 、 <code>三星应用商店</code> 、 <code>OPPO应用商店</code> 、 <code>Smartisan应用商店</code> 、 <code>百度手机助手</code> 、 <code>Google Play</code> 等。</p>
+<p>请从以上渠道下载、其余渠道均非官方上传、注意甄别。</p>
+<h3 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h3><p>应用计算内核代码已开源，代码请<a href="https://github.com/youlingwangzi/CalculatorForProgrammerKernel" target="_blank" rel="external">移步</a>。</p>
+<p>计算内核<a href="http://yuanxiaokun.xyz/cfp_kernel_doc">API文档</a>。</p>
+<h3 id="更新历史"><a href="#更新历史" class="headerlink" title="更新历史"></a>更新历史</h3><h4 id="V2-0新特性："><a href="#V2-0新特性：" class="headerlink" title="V2.0新特性："></a>V2.0新特性：</h4><ol>
+<li>没广告啦！启动提速啦！给你清爽体验！给你秒启快感！</li>
+<li>支持小数啦！实数、浮点数随心切换！</li>
+<li>支持整数位长调整啦！四种位长想算多长就多长！</li>
+<li>支持ASCⅡ码显示啦！支持将十六进制实时转换至ASCⅡ码。</li>
+<li>全新交互菜单！全新夜间模式！想怎么算就怎么算！</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/实用工具/" rel="tag"># 实用工具</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/02/程序员计算器计算内核/" rel="next" title="程序员计算器计算内核">
+                <i class="fa fa-chevron-left"></i> 程序员计算器计算内核
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my_icon.jpg"
+               alt="幽灵王子" />
+          <p class="site-author-name" itemprop="name">幽灵王子</p>
+           
+              <p class="site-description motion-element" itemprop="description">程序员计算器开发者</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特色功能"><span class="nav-number">1.</span> <span class="nav-text">特色功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#位键盘"><span class="nav-number">1.1.</span> <span class="nav-text">位键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全数据类型支持"><span class="nav-number">1.2.</span> <span class="nav-text">全数据类型支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种进制实时转换"><span class="nav-number">1.3.</span> <span class="nav-text">四种进制实时转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完善的逻辑运算和基础四则运算"><span class="nav-number">1.4.</span> <span class="nav-text">完善的逻辑运算和基础四则运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用详情"><span class="nav-number">2.</span> <span class="nav-text">应用详情</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境"><span class="nav-number">2.1.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限信息"><span class="nav-number">2.2.</span> <span class="nav-text">权限信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已上架商店及下载地址"><span class="nav-number">2.3.</span> <span class="nav-text">已上架商店及下载地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源项目"><span class="nav-number">2.4.</span> <span class="nav-text">开源项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新历史"><span class="nav-number">2.5.</span> <span class="nav-text">更新历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#V2-0新特性："><span class="nav-number">2.5.1.</span> <span class="nav-text">V2.0新特性：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">幽灵王子</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
